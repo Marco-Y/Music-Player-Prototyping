@@ -19,11 +19,12 @@ void draw() {
   if (song1.isLooping() && song1.loopCount()!=-1) println("There are", song1.loopCount(), "loops left.");
   if (song1.isLooping() && song1.loopCount()==-1) println("Looping Infinity");
   if (song1.isPlaying() && !song1.isLooping()) println("Play Once");
+  println("Song position", song1.position(), "Song Length", song1.length() );
 }//End draw
 //
 void keyPressed() {
   //First Play Button
-  if ( key=='p' || key=='P' ) song1.play(); //Parameter is milli-seconds from start of audio file to start playing
+  //if ( key=='p' || key=='P' ) song1.play(); //Parameter is milli-seconds from start of audio file to start playing
   //
   //Alternate Play Button, as a finite loop() && infinite loop()
   //Only press a number for the code below
@@ -47,8 +48,28 @@ void keyPressed() {
     }
   }//End mute button
   //
-  if ( key =='f' || key=='F' ) song1.skip(1000); //skip forward 1 sec (1000 milliseconds)
-  if ( key =='r' || key=='R' ) song1.skip(-1000); //reverse 1 sec
+  if ( key=='f' || key=='F' ) song1.skip(1000); //skip forward 1 sec (1000 milliseconds)
+  if ( key=='r' || key=='R' ) song1.skip(-1000); //reverse 1 sec
+  //
+  if ( key=='s' || key=='S' ) { //STOP Button
+    if (song1.isPlaying()) {
+      song1.pause();
+      song1.rewind();
+    } else { //Song is not playing
+      song1.rewind();
+    }
+  }//End Stop Button
+  //
+  if ( key=='p' || key=='P' ) {//PAUSE Button
+    if ( song1.isPlaying() ) {
+      song1.pause();
+    } else if (song1.position() >= song1.length() - song1.length()*1/100) {
+      song1.rewind();
+      song1.play();
+    } else {
+      song1.play();
+    }
+  }
 }//End keyPressed
 //
 void mousePressed() {
