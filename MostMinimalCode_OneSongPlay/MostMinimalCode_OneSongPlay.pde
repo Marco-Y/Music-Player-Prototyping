@@ -7,12 +7,13 @@ import ddf.minim.ugens.*;
 //
 //Global Variables
 Minim minim; //creates object to access all functions
-Audioplayer song1; //creates a playlist
+AudioPlayer song1; //creates a playlist
 //
 void setup() {
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   song1 = minim.loadFile("Xylophone Tip Toe Scale Up.mp3"); //able to pass absolute path, file name and extension, url
-  song1.play(); //Parameter is milli-seconds from start of audio file to start playing
+  //song1.play(); //Parameter is milli-seconds from start of audio file to start playing
+  song1.loop(); //Parameter is number of repeats
 }//End setup
 //
 void draw() {
