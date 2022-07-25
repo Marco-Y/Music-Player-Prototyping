@@ -1,3 +1,4 @@
+//NEVER COPY OR IT WILL BREAK PROGRAM
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -20,6 +21,11 @@ void draw() {
 }//End draw
 //
 void keyPressed() {
+  //First Play Button
+  if ( key=='p' || key=='P' ) song1.play(); //Parameter is milli-seconds from start of audio file to start playing
+  //
+  int loopNum3  = 2; //Local Variable plays once and loops twice
+  if ( key=='l' || key=='L' ) song1.loop(loopNum3); //Parameter is number of repeats
 }//End keyPressed
 //
 void mousePressed() {
