@@ -46,6 +46,9 @@ void keyPressed() {
       song1.mute();
     }
   }//End mute button
+  //
+  if ( key =='f' || key=='F' ) song1.skip(1000); //skip forward 1 sec (1000 milliseconds)
+  if ( key =='r' || key=='R' ) song1.skip(-1000); //reverse 1 sec
 }//End keyPressed
 //
 void mousePressed() {
