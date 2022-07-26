@@ -43,7 +43,7 @@ void draw() {
   fill(purple); //Ink
   textAlign(CENTER,CENTER); 
   textFont(titleFont, 30);
-  text(metaData, titleX, titleY, titleWidth, titleHeight);
+  text(songMetaData1.title(), titleX, titleY, titleWidth, titleHeight);
   fill(resetWhite);
 }//End draw
 //
