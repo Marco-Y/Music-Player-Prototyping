@@ -9,6 +9,7 @@ import ddf.minim.ugens.*;
 //Global Variables
 Minim minim; //creates object to access all functions
 AudioPlayer song1; //creates a playlist
+AudioMetaData songMetaData1;
 //
 PFont titleFont;
 color black=#000000, purple=#2C08FF, resetWhite=255;
@@ -19,6 +20,7 @@ void setup() {
   //Be careful to include Display Orientation checker and Display CANVAS Checker
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   song1 = minim.loadFile("Xylophone Tip Toe Scale Up.mp3"); //able to pass absolute path, file name and extension, url
+  songMetaData1 = song1.getMetaData();
   //
   //Population
   titleX = width*1/4;
