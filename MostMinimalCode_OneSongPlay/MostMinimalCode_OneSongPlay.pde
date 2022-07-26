@@ -10,9 +10,24 @@ import ddf.minim.ugens.*;
 Minim minim; //creates object to access all functions
 AudioPlayer song1; //creates a playlist
 //
+PFont titleFont;
+color black=#000000, purple=#2C08FF, resetWhite=255;
+float titleX, titleY, titleWidth, titleHeight;
+//
 void setup() {
+  size(500, 400); //Landscape
+  //Be careful to include Display Orientation checker and Display CANVAS Checker
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   song1 = minim.loadFile("Xylophone Tip Toe Scale Up.mp3"); //able to pass absolute path, file name and extension, url
+  //
+  //Population
+  titleX = width*1/4;
+  titleY = height*0;
+  titleWidth = width*1/2;
+  titleHeight = height*1/10;
+  //
+  titleFont = createFont("TimesNewRomanPSMT", 603);
+  //
 }//End setup
 //
 void draw() {
@@ -20,6 +35,14 @@ void draw() {
   if (song1.isLooping() && song1.loopCount()==-1) println("Looping Infinity");
   if (song1.isPlaying() && !song1.isLooping()) println("Play Once");
   println("Song position", song1.position(), "Song Length", song1.length() );
+  //
+  background(black);
+  rect(titleX, titleY, titleWidth, titleHeight);
+  fill(purple); //Ink
+  textAlign(CENTER,CENTER); 
+  textFont(titleFont, 30);
+  text();
+  fill(resetWhite);
 }//End draw
 //
 void keyPressed() {
