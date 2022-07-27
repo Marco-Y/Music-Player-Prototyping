@@ -1,4 +1,4 @@
-//NEVER COPY OR IT WILL BREAK PROGRAM
+ //NEVER COPY OR IT WILL BREAK PROGRAM
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -21,6 +21,25 @@ void setup() {
   minim = new Minim(this); //load from data directory, loadFile should also load from project folder, like loadImage
   song1 = minim.loadFile("Xylophone Tip Toe Scale Up.mp3"); //able to pass absolute path, file name and extension, url
   songMetaData1 = song1.getMetaData();
+  //Song 1 Variables
+  println( "File Name: ", songMetaData1.fileName() );
+  println( "Song Length (in milliseconds): ", songMetaData1.length() );
+  println( "Song Length (in seconds): ", songMetaData1.length()/1000 );
+  println( "Song Length (in minutes & seconds): ", (songMetaData1.length()/1000)/60, " minute", (songMetaData1.length()/1000)-((songMetaData1.length()/1000)/60 * 60), " seconds" );
+  println( "Song Title: ", songMetaData1.title() );
+  println( "Author: ", songMetaData1.author() ); //Song Writer or Performer
+  println( "Composer: ", songMetaData1.composer() ); //Song Writer
+  println( "Orchestra: ", songMetaData1.orchestra() );
+  println( "Album: ", songMetaData1.album() );
+  println( "Disk: ", songMetaData1.disc() );
+  println( "Publisher: ", songMetaData1.publisher() );
+  println( "Date Release: ", songMetaData1.date() );
+  println( "Copyright: ", songMetaData1.copyright() );
+  println( "Comment: ", songMetaData1.comment() );
+  println( "Lyrics: ", songMetaData1.lyrics() );
+  println( "Track: ", songMetaData1.track() );
+  println( "Genre: ", songMetaData1.genre() );
+  println( "Encoded: ", songMetaData1.encoded() );
   //
   //Population
   titleX = width*1/4;
